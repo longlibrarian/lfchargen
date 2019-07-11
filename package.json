@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/longlibrarian/lfchargen.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "longlibrarian",
+  "license": "GPL",
   "bugs": {
     "url": "https://github.com/longlibrarian/lfchargen/issues"
   },

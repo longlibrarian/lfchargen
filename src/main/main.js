@@ -1,17 +1,21 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
-function createWindow () {
-  // Create the browser window.
-  let win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences: {
-      nodeIntegration: true
-    }
-  })
+let win;
 
-  // and load the index.html of the app.
-  win.loadFile('../../index.html')
-}
+app.on('ready', () => {
+    win = new BrowserWindow({
+        heigth: 1000, 
+        width: 900, 
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+    
+    win.loadURL('file://' + path.resolve(__dirname, '../../index.html'));
+    win.webContents.openDevTools();
 
-app.on('ready', createWindow)
+    win.on('closed', () => {
+        win = null;
+    });
+});
